@@ -39,8 +39,24 @@
                         </el-row>
                     </div>
                 </el-tab-pane>
-                <el-tab-pane label="推荐电台" name="broadcast"></el-tab-pane>
-                <el-tab-pane label="推荐节目" name="program"></el-tab-pane>
+                <el-tab-pane label="推荐电台" name="broadcast">
+                    <div>
+                        <el-row>
+                            <el-col :span="4" v-for="(broadCast, index) in broadCasts" :key="index">
+                                <img :src="broadCast.imgUrl" class="broadcast-avatar"/>
+                                <p>{{broadCast.name}}</p>
+                            </el-col>
+                        </el-row>
+                    </div>
+                </el-tab-pane>
+                <el-tab-pane label="推荐节目" name="program">
+                    <div>
+                        <el-col :span="6" v-for="(program, index) in programs" :key="index">
+                            <img :src="program.imgUrl" class="program-avatar"/>
+                            <p>{{program.name}}</p>
+                        </el-col>
+                    </div>
+                </el-tab-pane>
             </el-tabs>
         </el-col>
     </el-row>
@@ -55,7 +71,9 @@ export default {
       singerOne: [],
       singerTwo: [],
       mvs: [],
-      playLists: []
+      playLists: [],
+      broadCasts: [],
+      programs: []
     };
   },
   methods: {
@@ -71,8 +89,10 @@ export default {
           this.getPlayLists();
           break;
         case "broadcast":
+          this.getBroadCasts();
           break;
         case "program":
+          this.getPrograms();
           break;
       }
     },
@@ -129,6 +149,34 @@ export default {
             });
           });
         });
+    },
+    getBroadCasts() {
+      this.broadCasts.length = 0;
+      axios
+        .get("http://localhost:3000/personalized/djprogram")
+        .then(response => {
+          let dataList = response.data.result;
+          dataList.forEach(element => {
+            this.broadCasts.push({
+              imgUrl: element.picUrl,
+              id: element.id,
+              name: element.name
+            });
+          });
+        });
+    },
+    getPrograms() {
+      this.programs.length = 0;
+      axios.get("http://localhost:3000/program/recommend").then(response => {
+        let dataList = response.data.programs;
+        dataList.forEach(element => {
+          this.programs.push({
+            imgUrl: element.coverUrl,
+            id: element.id,
+            name: element.name
+          });
+        });
+      });
     }
   },
   mounted: function() {
@@ -139,6 +187,8 @@ export default {
 <style>
 .singer-avatar,
 .playlist-avatar,
+.broadcast-avatar,
+.program-avatar,
 .mv-avatar {
   width: 90%;
 }
