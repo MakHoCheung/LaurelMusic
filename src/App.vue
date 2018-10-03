@@ -1,16 +1,16 @@
 <template>
-    <el-container id="app">
-        <el-aside width="400px" class="aside">Aside</el-aside>
-        <el-main class="main"><i class="el-icon-edit"></i>
-            <i class="el-icon-share"></i>
-            <i class="el-icon-delete"></i>
-            <el-button type="primary" icon="el-icon-search">搜索</el-button>
-        </el-main>
-    </el-container>
+  <el-container id="app">
+    <el-aside width="300px"><main-nav></main-nav></el-aside>
+    <el-main class="main">
+      <router-view></router-view>
+    </el-main>
+  </el-container>
 </template>
 <script>
+import nav from "./components/nav.vue";
 export default {
-  name: "app"
+  name: "app",
+  components: { "main-nav": nav }
 };
 </script>
 <style>
@@ -18,7 +18,10 @@ export default {
   background-color: azure;
 }
 .main {
-  background-color: burlywood;
+  
+}
+html,body,#app{
+  height: 100%;
 }
 </style>
 
