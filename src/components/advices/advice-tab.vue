@@ -1,65 +1,67 @@
 <template>
-    <el-row>
-        <el-col :span="24">
-            <div>推荐</div>
-            <el-tabs v-model="activeName" @tab-click="handleClick">
-                <el-tab-pane label="推荐歌手" name="singer">
-                    <div>
-                        <el-row>
-                            <el-col :span="4" v-for="(singer, index) in singerOne" :key="index">
-                                <img :src="singer.imgUrl" class="singer-avatar"/>
-                                <p>{{singer.name}}</p>
-                            </el-col>
-                        </el-row>
-                        <el-row>
-                            <el-col :span="4" v-for="(singer, index) in singerTwo" :key="index">
-                                <img :src="singer.imgUrl" class="singer-avatar"/>
-                                <p>{{singer.name}}</p>
-                            </el-col>
-                        </el-row>
-                    </div>
-                </el-tab-pane>
-                <el-tab-pane label="推荐mv" name="mv">
-                    <div>
-                        <el-row>
-                            <el-col :span="6" v-for="(mv, index) in mvs" :key="index">
-                                <img :src="mv.imgUrl" class="mv-avatar"/>
-                                <p>{{mv.name}}</p>
-                            </el-col>
-                        </el-row>
-                    </div>
-                </el-tab-pane>
-                <el-tab-pane label="推荐歌单" name="playlist">
-                    <div>
-                        <el-row>
-                            <el-col :span="4" v-for="(playList, index) in playLists" :key="index">
-                                <img :src="playList.imgUrl" class="playlist-avatar"/>
-                                <p>{{playList.name}}</p>
-                            </el-col>
-                        </el-row>
-                    </div>
-                </el-tab-pane>
-                <el-tab-pane label="推荐电台" name="broadcast">
-                    <div>
-                        <el-row>
-                            <el-col :span="4" v-for="(broadCast, index) in broadCasts" :key="index">
-                                <img :src="broadCast.imgUrl" class="broadcast-avatar"/>
-                                <p>{{broadCast.name}}</p>
-                            </el-col>
-                        </el-row>
-                    </div>
-                </el-tab-pane>
-                <el-tab-pane label="推荐节目" name="program">
-                    <div>
-                        <el-col :span="6" v-for="(program, index) in programs" :key="index">
-                            <img :src="program.imgUrl" class="program-avatar"/>
-                            <p>{{program.name}}</p>
-                        </el-col>
-                    </div>
-                </el-tab-pane>
-            </el-tabs>
-        </el-col>
-    </el-row>
+  <el-row>
+    <el-col :span="24">
+      <div>推荐</div>
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="推荐歌手" name="singer">
+          <div>
+            <el-row>
+              <el-col :span="4" v-for="(singer, index) in singerOne" :key="index">
+                <img :src="singer.imgUrl" class="singer-avatar"/>
+                <p>{{singer.name}}</p>
+              </el-col>
+            </el-row>
+            <el-row>
+              <el-col :span="4" v-for="(singer, index) in singerTwo" :key="index">
+                <img :src="singer.imgUrl" class="singer-avatar"/>
+                <p>{{singer.name}}</p>
+              </el-col>
+            </el-row>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="推荐mv" name="mv">
+          <div>
+            <el-row>
+              <el-col :span="6" v-for="(mv, index) in mvs" :key="index">
+                <img :src="mv.imgUrl" class="mv-avatar"/>
+                <p>{{mv.name}}</p>
+              </el-col>
+            </el-row>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="推荐歌单" name="playlist">
+          <div>
+            <el-row>
+              <el-col :span="4" v-for="(playList, index) in playLists" :key="index">
+                <img :src="playList.imgUrl" class="playlist-avatar"/>
+                <p>{{playList.name}}</p>
+              </el-col>
+            </el-row>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="推荐电台" name="broadcast">
+          <div>
+            <el-row>
+              <el-col :span="4" v-for="(broadCast, index) in broadCasts" :key="index">
+                <img :src="broadCast.imgUrl" class="broadcast-avatar"/>
+                <p>{{broadCast.name}}</p>
+              </el-col>
+            </el-row>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="推荐节目" name="program">
+          <div>
+            <el-row>
+              <el-col :span="6" v-for="(program, index) in programs" :key="index">
+                <img :src="program.imgUrl" class="program-avatar"/>
+                <p>{{program.name}}</p>
+              </el-col>
+            </el-row>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
+    </el-col>
+  </el-row>
 </template>
 <script>
 import axios from "axios";
