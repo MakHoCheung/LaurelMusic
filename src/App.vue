@@ -1,16 +1,24 @@
 <template>
   <el-container id="app">
-    <el-aside width="300px"><main-nav></main-nav></el-aside>
-    <el-main class="main">
-      <router-view></router-view>
-    </el-main>
+    <el-aside width="300px">
+      <main-nav></main-nav>
+    </el-aside>
+    <el-container>
+      <el-main class="main">
+        <router-view></router-view>
+      </el-main>
+      <el-footer>
+         <player/>
+      </el-footer>
+    </el-container>
   </el-container>
 </template>
 <script>
 import nav from "./components/nav.vue";
+import player from "./components/player.vue";
 export default {
   name: "app",
-  components: { "main-nav": nav }
+  components: { "main-nav": nav, player }
 };
 </script>
 <style>
@@ -18,9 +26,10 @@ export default {
   background-color: azure;
 }
 .main {
-  
 }
-html,body,#app{
+html,
+body,
+#app {
   height: 100%;
 }
 </style>
