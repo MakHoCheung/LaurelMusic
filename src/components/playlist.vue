@@ -22,15 +22,27 @@
     </section>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "playlist",
   data: function() {
     return {
-      tags: ["全部", "华语"]
+      tags: []
     };
   },
-  methods: {},
-  mounted() {}
+  methods: {
+    getCatList() {
+      axios.get("http://localhost:3000/playlist/catlist").then(response => {
+        let dataList = response.sub;
+        dataList.forEach(element => {
+          this.tags.push(element.name);
+        });
+      });
+    }
+  },
+  mounted() {
+      this.getCatList();
+  }
 };
 </script>
 <style>
