@@ -33,7 +33,7 @@ export default {
   methods: {
     getCatList() {
       axios.get("http://localhost:3000/playlist/catlist").then(response => {
-        let dataList = response.sub;
+        let dataList = response.data.sub;
         dataList.forEach(element => {
           this.tags.push(element.name);
         });
