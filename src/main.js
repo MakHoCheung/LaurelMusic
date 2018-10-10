@@ -13,7 +13,7 @@ Vue.use(ElementUI);
 //Vue.prototype.$http = axios;
 const router = new VueRouter({
     routes: [
-        { path: '/', component: Home }, { path: '/search', component: Search }, { path: '/playlist', component: PlayList }
+        { path: '/', component: Home }, { path: '/search', component: Search }, { path: '/playlist', component: PlayList }, { path: '/search', component: Search }
     ]
 });
 new Vue({

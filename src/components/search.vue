@@ -1,11 +1,17 @@
 <template>
-    <h1>two</h1>
+    <el-input v-model="keyword" placeholder="请输入内容"></el-input>
 </template>
 <script>
 export default {
-    
-}
+  name: "search-tab",
+  data:function(){
+    return {
+      keyword: ""
+    };
+  },
+  methods: {},
+  mounted() {}
+};
 </script>
 <style>
-
 </style>
