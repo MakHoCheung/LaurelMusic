@@ -12,9 +12,9 @@
     </el-row>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "home-pane",
+  name: 'home-pane',
   data: function() {
     return {
       banners: []
@@ -23,7 +23,7 @@ export default {
   methods: {
     getBanner() {
       axios
-        .get("http://localhost:3000/banner")
+        .get('http://localhost:3000/banner')
         .then(response => {
           let dataList = response.data.banners;
           dataList.forEach(element => {

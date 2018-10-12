@@ -13,9 +13,9 @@
   </el-container>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "new-music",
+  name: 'new-music',
   data: function() {
     return {
       musicList: []
@@ -24,7 +24,7 @@ export default {
   methods: {
     getNewMusics() {
       this.musicList.length = 0;
-      axios.get("http://localhost:3000/personalized/newsong").then(response => {
+      axios.get('http://localhost:3000/personalized/newsong').then(response => {
         let dataList = response.data.result;
         dataList.forEach(element => {
           this.musicList.push({

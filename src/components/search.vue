@@ -1,16 +1,16 @@
 <template>
-    <el-input v-model="keyword" placeholder="请输入内容"></el-input>
+  <el-input v-model="keyword" placeholder="请输入内容"></el-input>
 </template>
 <script>
 export default {
-  name: "search-tab",
-  data:function(){
+  name: 'search-tab',
+  data() {
     return {
-      keyword: ""
+      keyword: ''
     };
   },
   methods: {},
-  mounted() {}
+  mounted() { }
 };
 </script>
 <style>

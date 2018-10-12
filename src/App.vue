@@ -14,11 +14,11 @@
   </el-container>
 </template>
 <script>
-import nav from "./components/nav.vue";
-import player from "./components/player.vue";
+import nav from './components/nav.vue';
+import player from './components/player.vue';
 export default {
-  name: "app",
-  components: { "main-nav": nav, player }
+  name: 'app',
+  components: { 'main-nav': nav, player }
 };
 </script>
 <style>
@@ -36,4 +36,3 @@ body{
   margin: 0;
 }
 </style>
-

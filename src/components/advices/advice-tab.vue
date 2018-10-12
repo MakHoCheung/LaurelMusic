@@ -7,13 +7,13 @@
           <div>
             <el-row>
               <el-col :span="4" v-for="(singer, index) in singerOne" :key="index">
-                <img :src="singer.imgUrl" class="singer-avatar"/>
+                <img :src="singer.imgUrl" class="singer-avatar">
                 <p>{{singer.name}}</p>
               </el-col>
             </el-row>
             <el-row>
               <el-col :span="4" v-for="(singer, index) in singerTwo" :key="index">
-                <img :src="singer.imgUrl" class="singer-avatar"/>
+                <img :src="singer.imgUrl" class="singer-avatar">
                 <p>{{singer.name}}</p>
               </el-col>
             </el-row>
@@ -23,7 +23,7 @@
           <div>
             <el-row>
               <el-col :span="6" v-for="(mv, index) in mvs" :key="index">
-                <img :src="mv.imgUrl" class="mv-avatar"/>
+                <img :src="mv.imgUrl" class="mv-avatar">
                 <p>{{mv.name}}</p>
               </el-col>
             </el-row>
@@ -33,7 +33,7 @@
           <div>
             <el-row>
               <el-col :span="4" v-for="(playList, index) in playLists" :key="index">
-                <img :src="playList.imgUrl" class="playlist-avatar"/>
+                <img :src="playList.imgUrl" class="playlist-avatar">
                 <p>{{playList.name}}</p>
               </el-col>
             </el-row>
@@ -43,7 +43,7 @@
           <div>
             <el-row>
               <el-col :span="4" v-for="(broadCast, index) in broadCasts" :key="index">
-                <img :src="broadCast.imgUrl" class="broadcast-avatar"/>
+                <img :src="broadCast.imgUrl" class="broadcast-avatar">
                 <p>{{broadCast.name}}</p>
               </el-col>
             </el-row>
@@ -53,7 +53,7 @@
           <div>
             <el-row>
               <el-col :span="6" v-for="(program, index) in programs" :key="index">
-                <img :src="program.imgUrl" class="program-avatar"/>
+                <img :src="program.imgUrl" class="program-avatar">
                 <p>{{program.name}}</p>
               </el-col>
             </el-row>
@@ -64,12 +64,12 @@
   </el-row>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "advice-tab",
-  data: function() {
+  name: 'advice-tab',
+  data: function () {
     return {
-      activeName: "singer",
+      activeName: 'singer',
       singerOne: [],
       singerTwo: [],
       mvs: [],
@@ -81,19 +81,19 @@ export default {
   methods: {
     handleClick(tab, event) {
       switch (tab.name) {
-        case "singer":
+        case 'singer':
           this.getSingers();
           break;
-        case "mv":
+        case 'mv':
           this.getMvs();
           break;
-        case "playlist":
+        case 'playlist':
           this.getPlayLists();
           break;
-        case "broadcast":
+        case 'broadcast':
           this.getBroadCasts();
           break;
-        case "program":
+        case 'program':
           this.getPrograms();
           break;
       }
@@ -103,7 +103,7 @@ export default {
       this.singerOne.length = 0;
       this.singerTwo.length = 0;
       axios
-        .get("http://localhost:3000/top/artists?offset=0&limit=12")
+        .get('http://localhost:3000/top/artists?offset=0&limit=12')
         .then(response => {
           let dataList = response.data.artists;
           dataList.forEach(element => {
@@ -124,7 +124,7 @@ export default {
     },
     getMvs() {
       this.mvs.length = 0;
-      axios.get("http://localhost:3000/personalized/mv").then(response => {
+      axios.get('http://localhost:3000/personalized/mv').then(response => {
         let dataList = response.data.result;
         dataList.forEach(element => {
           this.mvs.push({
@@ -140,7 +140,7 @@ export default {
     getPlayLists() {
       this.playLists.length = 0;
       axios
-        .get("http://localhost:3000/personalized?offset=0&limit=12")
+        .get('http://localhost:3000/personalized?offset=0&limit=12')
         .then(response => {
           let dataList = response.data.result;
           dataList.forEach(element => {
@@ -155,7 +155,7 @@ export default {
     getBroadCasts() {
       this.broadCasts.length = 0;
       axios
-        .get("http://localhost:3000/personalized/djprogram")
+        .get('http://localhost:3000/personalized/djprogram')
         .then(response => {
           let dataList = response.data.result;
           dataList.forEach(element => {
@@ -169,7 +169,7 @@ export default {
     },
     getPrograms() {
       this.programs.length = 0;
-      axios.get("http://localhost:3000/program/recommend").then(response => {
+      axios.get('http://localhost:3000/program/recommend').then(response => {
         let dataList = response.data.programs;
         dataList.forEach(element => {
           this.programs.push({
@@ -181,7 +181,7 @@ export default {
       });
     }
   },
-  mounted: function() {
+  mounted: function () {
     this.getSingers();
   }
 };

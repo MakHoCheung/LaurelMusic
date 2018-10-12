@@ -25,9 +25,9 @@
     </section>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "playlist",
+  name: 'playlist',
   data: function() {
     return {
       tags: [],
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getCatList() {
-      axios.get("http://localhost:3000/playlist/catlist").then(response => {
+      axios.get('http://localhost:3000/playlist/catlist').then(response => {
         let dataList = response.data.sub;
         dataList.forEach(element => {
           this.tags.push(element.name);
@@ -45,8 +45,8 @@ export default {
     },
     getPlayListWithTag(tag) {
       let url = tag
-        ? "http://localhost:3000/top/playlist?limit=10&order=new&cat=" + tag
-        : "http://localhost:3000/top/playlist?limit=10&order=new";
+        ? 'http://localhost:3000/top/playlist?limit=10&order=new&cat=' + tag
+        : 'http://localhost:3000/top/playlist?limit=10&order=new';
       axios.get(url).then(response => {
         let dataList = response.data.playlists;
         dataList.forEach(element => {

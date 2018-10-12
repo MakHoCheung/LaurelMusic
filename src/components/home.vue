@@ -6,15 +6,15 @@
     </div>
 </template>
 <script>
-import banner from "./banner.vue";
-import adviceTab from "./advices/advice-tab.vue";
-import newMusic from "./new-music.vue";
+import banner from './banner.vue';
+import adviceTab from './advices/advice-tab.vue';
+import newMusic from './new-music.vue';
 export default {
-  name: "home",
+  name: 'home',
   components: {
     banner,
-    "advice-tab": adviceTab,
-    "new-music": newMusic
+    'advice-tab': adviceTab,
+    'new-music': newMusic
   }
 };
 </script>

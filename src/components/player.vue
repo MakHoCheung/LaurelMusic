@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-  name: "palyer",
+  name: 'palyer',
   data: function() {
     return {};
   },
