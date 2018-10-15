@@ -3,7 +3,7 @@
     <el-menu-item index="/">首页</el-menu-item>
     <el-menu-item index="/search">搜索</el-menu-item>
     <el-menu-item index="/playlist">歌单</el-menu-item>
-    <el-menu-item index="/top">排行榜</el-menu-item>
+    <el-menu-item index="/rank">排行榜</el-menu-item>
     <el-menu-item index="/set-up">设置</el-menu-item>
   </el-menu>
 </template>
