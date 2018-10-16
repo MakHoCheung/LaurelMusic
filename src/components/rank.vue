@@ -7,6 +7,7 @@
                         <el-col :span="8" v-for="(rank,index) in officialRankList" :key="index">
                             <img :src="rank.imgUrl" class="rank" />
                             <p>{{rank.rankName}}</p>
+                            <rankList :rankList="rank.officialList" />
                         </el-col>
                     </el-row>
                 </el-tab-pane>
@@ -15,6 +16,7 @@
                         <el-col :span="8" v-for="(rank,index) in globalRankList" :key="index">
                             <img :src="rank.imgUrl" class="rank" />
                             <p>{{rank.rankName}}</p>
+                            <rankList :rankList="rank.globalList"/>
                         </el-col>
                     </el-row>
                 </el-tab-pane>
@@ -24,14 +26,18 @@
 </template>
 <script>
 import axios from 'axios';
+import rankList from './rank-list';
 export default {
     name: 'rank-tab',
     data: function () {
         return {
-            activeName:'official',
+            activeName: 'official',
             officialRankList: [],
             globalRankList: [],
         }
+    },
+    components: {
+        rankList
     },
     methods: {
         getOfficialRankList() {
@@ -48,6 +54,7 @@ export default {
                             id: element.id
                         });
                     });
+                    officialList.length = 5
                     return { officialList, rankName, imgUrl };
                 }).then(rank => {
                     this.officialRankList.push(rank);
@@ -58,6 +65,7 @@ export default {
             for (let i = 5; i < 23; i++) {
                 let url = `http://localhost:3000/top/list?idx=${i}`;
                 let globalList = [];
+                debugger
                 axios.get(url).then(response => {
                     let rankName = response.data.playlist.name;
                     let imgUrl = response.data.playlist.coverImgUrl;
@@ -68,6 +76,7 @@ export default {
                             id: element.id
                         });
                     });
+                    globalList.length = 5;
                     return { globalList, rankName, imgUrl };
                 }).then(rank => {
                     this.globalRankList.push(rank);
