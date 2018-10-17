@@ -1,9 +1,9 @@
 <template>
   <section>
     <el-row>
-      <el-col :span="3"><img class="player-avatar" src="http://p3.music.126.net/_d1scu7z_1dmd0Zgv9mTLA==/19165587183900212.jpg"/></el-col>
+      <el-col :span="3"><img class="player-avatar" :src="albumPicUrl"/></el-col>
         <el-col :span="8">
-          <el-slider></el-slider>
+          <audio autoplay controls :src="musicUrl"/>
         </el-col>
     </el-row>
   </section>
@@ -12,10 +12,20 @@
 export default {
   name: 'palyer',
   data: function() {
-    return {};
+    return {
+    }
+  },
+  computed:{
+    albumPicUrl(){
+      return this.$store.state.player.albumPicUrl;
+    },
+    musicUrl(){
+      return this.$store.state.player.musicUrl;
+    }
   },
   methods: {},
-  mounted() {}
+  mounted() {
+  }
 };
 </script>
 <style>

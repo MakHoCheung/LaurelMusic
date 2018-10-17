@@ -14,8 +14,8 @@
   </el-container>
 </template>
 <script>
-import nav from './components/nav.vue';
-import player from './components/player.vue';
+import nav from './components/nav';
+import player from './components/player';
 export default {
   name: 'app',
   components: { 'main-nav': nav, player }

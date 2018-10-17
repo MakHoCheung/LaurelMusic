@@ -3,6 +3,7 @@ import App from './App.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import VueRouter from 'vue-router';
+import store from './store/store';
 import Home from './components/home.vue';
 import Search from './components/search.vue';
 import PlayList from './components/playlist.vue';
@@ -21,6 +22,7 @@ const router = new VueRouter(
     });
 new Vue({
     el: '#app',
+    store,
     router,
     template: '<App/>',
     components: { App }
