@@ -23,7 +23,7 @@ export default {
   methods: {
     getBanner() {
       axios
-        .get('http://localhost:3000/banner')
+        .get('/api/banner')
         .then(response => {
           let dataList = response.data.banners;
           dataList.forEach(element => {

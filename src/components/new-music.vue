@@ -24,7 +24,7 @@ export default {
   methods: {
     getNewMusics() {
       this.musicList.length = 0;
-      axios.get('http://localhost:3000/personalized/newsong').then(response => {
+      axios.get('/api/personalized/newsong').then(response => {
         let dataList = response.data.result;
         dataList.forEach(element => {
           this.musicList.push({
@@ -41,7 +41,7 @@ export default {
     },
     handleCurrentChange(currentRow, oldRow) {
       let id = currentRow.id;
-      axios.get('http://localhost:3000/song/url?id=' + id).then(response => {
+      axios.get('/api/song/url?id=' + id).then(response => {
         this.$store.commit('setPlayerState', { musicUrl: response.data.data[0].url, albumPicUrl: currentRow.albumPicUrl });
       })
     }

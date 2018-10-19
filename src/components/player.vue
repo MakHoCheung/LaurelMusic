@@ -8,7 +8,7 @@
       <el-progress :percentage="progress" :show-text="false" color="#da4949"></el-progress>
     </el-col>
     <el-col :span="1" offset="1">
-      <el-button :icon="statuButtonIcon" circle @click="statuButtonClick"></el-button>
+      <el-button icon="el-icon-third-play-circle-fill" circle @click="statuButtonClick"></el-button>
     </el-col>
     <el-col :span="1" offset="1">
       <el-button icon="el-icon-d-arrow-right" circle></el-button>
@@ -22,7 +22,7 @@ export default {
   data: function () {
     return {
       isPlaying: false,
-      statuButtonIcon: 'el-icon-caret-right',
+      statuButtonIcon: '',
       progress: 0
     }
   },

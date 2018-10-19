@@ -103,7 +103,7 @@ export default {
       this.singerOne.length = 0;
       this.singerTwo.length = 0;
       axios
-        .get('http://localhost:3000/top/artists?offset=0&limit=12')
+        .get('/api/top/artists?offset=0&limit=12')
         .then(response => {
           let dataList = response.data.artists;
           dataList.forEach(element => {
@@ -124,7 +124,7 @@ export default {
     },
     getMvs() {
       this.mvs.length = 0;
-      axios.get('http://localhost:3000/personalized/mv').then(response => {
+      axios.get('/api/personalized/mv').then(response => {
         let dataList = response.data.result;
         dataList.forEach(element => {
           this.mvs.push({
@@ -140,7 +140,7 @@ export default {
     getPlayLists() {
       this.playLists.length = 0;
       axios
-        .get('http://localhost:3000/personalized?offset=0&limit=12')
+        .get('/api/personalized?offset=0&limit=12')
         .then(response => {
           let dataList = response.data.result;
           dataList.forEach(element => {
@@ -155,7 +155,7 @@ export default {
     getBroadCasts() {
       this.broadCasts.length = 0;
       axios
-        .get('http://localhost:3000/personalized/djprogram')
+        .get('/api/personalized/djprogram')
         .then(response => {
           let dataList = response.data.result;
           dataList.forEach(element => {
@@ -169,7 +169,7 @@ export default {
     },
     getPrograms() {
       this.programs.length = 0;
-      axios.get('http://localhost:3000/program/recommend').then(response => {
+      axios.get('/api/program/recommend').then(response => {
         let dataList = response.data.programs;
         dataList.forEach(element => {
           this.programs.push({
