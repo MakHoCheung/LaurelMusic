@@ -44,7 +44,7 @@ export default {
             for (let i = 0; i < 5; i++) {
                 let url = `/api/top/list?idx=${i}`;
                 let officialList = [];
-                axios.get(url).then(response => {
+                this.$http.getOfficialRankList(url,response => {
                     let rankName = response.data.playlist.name;
                     let imgUrl = response.data.playlist.coverImgUrl;
                     let dataList = response.data.playlist.tracks;
@@ -66,7 +66,7 @@ export default {
                 let url = `/api/top/list?idx=${i}`;
                 let globalList = [];
                 debugger
-                axios.get(url).then(response => {
+                this.$http.getGlobalRankList(url,response => {
                     let rankName = response.data.playlist.name;
                     let imgUrl = response.data.playlist.coverImgUrl;
                     let dataList = response.data.playlist.tracks;

@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getCatList() {
-      axios.get('/api/playlist/catlist').then(response => {
+      this.$http.getCatList(response => {
         let dataList = response.data.sub;
         dataList.forEach(element => {
           this.tags.push(element.name);
@@ -47,7 +47,7 @@ export default {
       let url = tag
         ? '/api/top/playlist?limit=10&order=new&cat=' + tag
         : '/api/top/playlist?limit=10&order=new';
-      axios.get(url).then(response => {
+      this.$http.getPlayListWithTag(url,response => {
         let dataList = response.data.playlists;
         dataList.forEach(element => {
           this.playLists.push({

@@ -13,18 +13,18 @@
   </el-container>
 </template>
 <script>
-import axios from 'axios';
 export default {
   name: 'new-music',
   data: function () {
     return {
-      musicList: []
+      musicList: [],
     };
   },
   methods: {
     getNewMusics() {
       this.musicList.length = 0;
-      axios.get('/api/personalized/newsong').then(response => {
+      console.log(this.$http);
+      this.$http.getNewMusic(response => {
         let dataList = response.data.result;
         dataList.forEach(element => {
           this.musicList.push({
@@ -41,7 +41,7 @@ export default {
     },
     handleCurrentChange(currentRow, oldRow) {
       let id = currentRow.id;
-      axios.get('/api/song/url?id=' + id).then(response => {
+      this.$http.getMusicUrl(id,response => {
         this.$store.commit('setPlayerState', { musicUrl: response.data.data[0].url, albumPicUrl: currentRow.albumPicUrl });
       })
     }

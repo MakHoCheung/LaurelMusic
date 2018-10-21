@@ -9,8 +9,10 @@ import Search from './components/search.vue';
 import PlayList from './components/playlist.vue';
 import Rank from './components/rank';
 import './assets/icon/iconfont.css';
+import Http from './http/http';
 Vue.use(VueRouter);
 Vue.use(ElementUI);
+Vue.prototype.$http = Http;
 const router = new VueRouter(
     {
         routes: [
