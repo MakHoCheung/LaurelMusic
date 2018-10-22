@@ -8,7 +8,7 @@
       <el-progress :percentage="progress" :show-text="false" color="#da4949"></el-progress>
     </el-col>
     <el-col :span="1" offset="1">
-      <el-button icon="el-icon-third-play-circle-fill" circle @click="statuButtonClick"></el-button>
+      <el-button :icon="statusButtonIcon" circle @click="statusButtonClick" class="statusButton"></el-button>
     </el-col>
     <el-col :span="1" offset="1">
       <el-button icon="el-icon-d-arrow-right" circle></el-button>
@@ -21,9 +21,6 @@ export default {
   name: 'palyer',
   data: function () {
     return {
-      isPlaying: false,
-      statuButtonIcon: '',
-      progress: 0
     }
   },
   computed: {
@@ -32,25 +29,34 @@ export default {
     },
     musicUrl() {
       return this.$store.state.player.musicUrl;
+    },
+    statusButtonIcon() {
+      return this.$store.state.player.statusButtonIcon;
+    },
+    isPlaying() {
+      return this.$store.state.player.isPlaying;
+    },
+    progress() {
+      return this.$store.state.player.progress;
     }
   },
   methods: {
-    statuButtonClick() {
+    statusButtonClick() {
       if (this.isPlaying) {
-        this.statuButtonIcon = 'el-icon-close';
+        this.$store.commit('setPauseState');
         this.$refs.audio.pause();
+        console.log(this.statusButtonIcon);
       } else {
-        this.statuButtonIcon = 'el-icon-caret-right';
+        this.$store.commit('setPlayState');
         this.$refs.audio.play();
       }
-      this.isPlaying = !this.isPlaying;
     },
     updateProgress() {
       let currentTime = this.$refs.audio.currentTime;
       let duration = this.$refs.audio.duration;
-      let theProgress = (currentTime/duration)*100+'';
-      let trueProgress = parseInt(theProgress.substring(0,theProgress.indexOf('.')));
-      this.progress = theProgress;
+      let theProgress = (currentTime / duration) * 100 + '';
+      let trueProgress = parseInt(theProgress.substring(0, theProgress.indexOf('.')));
+      this.$store.commit('setProgress', { progress: trueProgress });
     }
   },
   mounted() {
@@ -66,5 +72,18 @@ export default {
 .player {
   background-color: rgba(28, 30, 37, 0.959);
   height: 100%;
+}
+.statusButton,
+.statusButton:focus,
+.statusButton:hover,
+.statusButton:active {
+  padding: 0 !important;
+  background-color: rgb(139, 32, 32);
+  color: white;
+  border: black
+}
+.el-icon-third-play-circle,
+.el-icon-third-pause {
+  font-size: 47px;
 }
 </style>

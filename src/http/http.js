@@ -17,7 +17,7 @@ export default {
         axios.get('/api/personalized/mv').then(handler);
     },
     getPlayLists(handler){
-        axio.get('/api/personalized?offset=0&limit=12').then(handler);
+        axios.get('/api/personalized?offset=0&limit=12').then(handler);
     },
     getBroadCasts(handler){
         axios.get('/api/personalized/djprogram').then(handler);
@@ -31,10 +31,10 @@ export default {
     getPlayListWithTag(url,handler){
         axios.get(url).then(handler);
     },
-    getOfficialRankList(url,handler){
-        axios.get(url).then(handler);
+    getOfficialRankList(url,handler,secondHandler){
+        axios.get(url).then(handler).then(secondHandler);
     },
-    getGlobalRankList(url,handler){
-        axios.get(url).then(handler);
+    getGlobalRankList(url,handler,secondHandler){
+        axios.get(url).then(handler).then(secondHandler);
     }
 }

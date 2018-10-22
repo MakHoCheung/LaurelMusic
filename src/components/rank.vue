@@ -16,7 +16,7 @@
                         <el-col :span="8" v-for="(rank,index) in globalRankList" :key="index">
                             <img :src="rank.imgUrl" class="rank" />
                             <p>{{rank.rankName}}</p>
-                            <rankList :rankList="rank.globalList"/>
+                            <rankList :rankList="rank.globalList" />
                         </el-col>
                     </el-row>
                 </el-tab-pane>
@@ -44,7 +44,7 @@ export default {
             for (let i = 0; i < 5; i++) {
                 let url = `/api/top/list?idx=${i}`;
                 let officialList = [];
-                this.$http.getOfficialRankList(url,response => {
+                this.$http.getOfficialRankList(url, response => {
                     let rankName = response.data.playlist.name;
                     let imgUrl = response.data.playlist.coverImgUrl;
                     let dataList = response.data.playlist.tracks;
@@ -56,17 +56,16 @@ export default {
                     });
                     officialList.length = 5
                     return { officialList, rankName, imgUrl };
-                }).then(rank => {
+                }, rank => {
                     this.officialRankList.push(rank);
-                })
+                });
             }
         },
         getGlobalRankList() {
             for (let i = 5; i < 23; i++) {
                 let url = `/api/top/list?idx=${i}`;
                 let globalList = [];
-                debugger
-                this.$http.getGlobalRankList(url,response => {
+                this.$http.getGlobalRankList(url, response => {
                     let rankName = response.data.playlist.name;
                     let imgUrl = response.data.playlist.coverImgUrl;
                     let dataList = response.data.playlist.tracks;
@@ -78,9 +77,9 @@ export default {
                     });
                     globalList.length = 5;
                     return { globalList, rankName, imgUrl };
-                }).then(rank => {
+                }, rank => {
                     this.globalRankList.push(rank);
-                })
+                });
             }
         },
         handleClick(tab, event) {
