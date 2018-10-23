@@ -26,6 +26,7 @@ export default {
   background-color: azure;
 }
 .main {
+  height: 100%;
 }
 html,
 body,

@@ -3,8 +3,12 @@
     <el-col :span="24">
       <el-carousel indicator-position="outside">
         <el-carousel-item v-for="item in banners" :key="item">
-          <el-row justify="center" type="flex" v-bind:style="{'background-image':'url('+item.backgroundUrl+')'}">
-            <img :src="item.imgUrl" />
+          <el-row
+            justify="center"
+            type="flex"
+            v-bind:style="{'background-image':'url('+item.backgroundUrl+')'}"
+          >
+            <a :href="item.dataUrl"><img :src="item.imgUrl"></a>
           </el-row>
         </el-carousel-item>
       </el-carousel>
@@ -31,10 +35,7 @@ export default {
             backgroundUrl: element.backgroundUrl
           });
         });
-      })
-        .catch(error => {
-          console.log(error);
-        });
+      });
     }
   },
   mounted: function () {

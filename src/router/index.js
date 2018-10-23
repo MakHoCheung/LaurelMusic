@@ -1,15 +1,19 @@
 import Vue from 'vue';
-import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
+import VueRouter from 'vue-router';
+import Home from '@/components/home.vue';
+import Search from '@/components/search.vue';
+import PlayList from '@/components/playlist.vue';
+import Rank from '@/components/rank';
+import AdviceSinger from '@/components/advice-singer';
+Vue.use(VueRouter);
 
-Vue.use(Router);
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
-});
+export default new VueRouter(
+  {
+      routes: [
+          { path: '/', component: Home },
+          { path: '/search', component: Search },
+          { path: '/playlist', component: PlayList },
+          { path: '/rank', component: Rank },
+          {path:'/advice_singer',component: AdviceSinger}
+      ]
+  });

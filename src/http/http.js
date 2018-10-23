@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    getBanner(handler){
+    getBanner(handler) {
         axios.get('/api/banner').then(handler);
     },
     getNewMusic(handler) {
@@ -13,28 +13,31 @@ export default {
     getSingers(hander) {
         axios.get('/api/top/artists?offset=0&limit=12').then(hander);
     },
-    getMvs(handler){
+    getMvs(handler) {
         axios.get('/api/personalized/mv').then(handler);
     },
-    getPlayLists(handler){
+    getPlayLists(handler) {
         axios.get('/api/personalized?offset=0&limit=12').then(handler);
     },
-    getBroadCasts(handler){
+    getBroadCasts(handler) {
         axios.get('/api/personalized/djprogram').then(handler);
     },
-    getPrograms(handler){
+    getPrograms(handler) {
         axios.get('/api/program/recommend').then(handler);
     },
-    getCatList(handler){
+    getCatList(handler) {
         axios.get('/api/playlist/catlist').then(handler);
     },
-    getPlayListWithTag(url,handler){
+    getPlayListWithTag(url, handler) {
         axios.get(url).then(handler);
     },
-    getOfficialRankList(url,handler,secondHandler){
+    getOfficialRankList(url, handler, secondHandler) {
         axios.get(url).then(handler).then(secondHandler);
     },
-    getGlobalRankList(url,handler,secondHandler){
+    getGlobalRankList(url, handler, secondHandler) {
         axios.get(url).then(handler).then(secondHandler);
+    },
+    getSinger(id, handler) {
+        axios.get('/api/artists?id=' + id).then(handler);
     }
 }

@@ -6,14 +6,10 @@
         <el-tab-pane label="推荐歌手" name="singer">
           <div>
             <el-row>
-              <el-col :span="4" v-for="(singer, index) in singerOne" :key="index">
-                <img :src="singer.imgUrl" class="singer-avatar">
-                <p>{{singer.name}}</p>
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="4" v-for="(singer, index) in singerTwo" :key="index">
-                <img :src="singer.imgUrl" class="singer-avatar">
+              <el-col :span="4" v-for="(singer, index) in singers" :key="index">
+                <router-link :to="{path:'/advice_singer',query:{id:singer.id}}">
+                  <img :src="singer.imgUrl" class="singer-avatar">
+                </router-link>
                 <p>{{singer.name}}</p>
               </el-col>
             </el-row>
@@ -70,8 +66,7 @@ export default {
   data: function () {
     return {
       activeName: 'singer',
-      singerOne: [],
-      singerTwo: [],
+      singers: [],
       mvs: [],
       playLists: [],
       broadCasts: [],
@@ -99,26 +94,17 @@ export default {
       }
     },
     getSingers() {
-      let list = [];
-      this.singerOne.length = 0;
-      this.singerTwo.length = 0;
+      this.singers.length = 0;
       this.$http.getSingers(response => {
-          let dataList = response.data.artists;
-          dataList.forEach(element => {
-            list.push({
-              imgUrl: element.img1v1Url,
-              name: element.name,
-              id: element.id
-            });
+        let dataList = response.data.artists;
+        dataList.forEach(element => {
+          this.singers.push({
+            imgUrl: element.img1v1Url,
+            name: element.name,
+            id: element.id
           });
-          for (let i = 0; i < list.length; i++) {
-            if (i < 6) {
-              this.singerOne.push(list[i]);
-            } else {
-              this.singerTwo.push(list[i]);
-            }
-          }
         });
+      });
     },
     getMvs() {
       this.mvs.length = 0;
@@ -138,28 +124,28 @@ export default {
     getPlayLists() {
       this.playLists.length = 0;
       this.$http.getPlayLists(response => {
-          let dataList = response.data.result;
-          dataList.forEach(element => {
-            this.playLists.push({
-              imgUrl: element.picUrl,
-              id: element.id,
-              name: element.name
-            });
+        let dataList = response.data.result;
+        dataList.forEach(element => {
+          this.playLists.push({
+            imgUrl: element.picUrl,
+            id: element.id,
+            name: element.name
           });
         });
+      });
     },
     getBroadCasts() {
       this.broadCasts.length = 0;
       this.$http.getBroadCasts(response => {
-          let dataList = response.data.result;
-          dataList.forEach(element => {
-            this.broadCasts.push({
-              imgUrl: element.picUrl,
-              id: element.id,
-              name: element.name
-            });
+        let dataList = response.data.result;
+        dataList.forEach(element => {
+          this.broadCasts.push({
+            imgUrl: element.picUrl,
+            id: element.id,
+            name: element.name
           });
         });
+      });
     },
     getPrograms() {
       this.programs.length = 0;
