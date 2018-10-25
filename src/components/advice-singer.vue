@@ -1,13 +1,13 @@
 <template>
-    <el-row type="flex" align="middle">
-        <el-col span="12">
-            <p>{{artist.name}}</p>
+    <el-row>
+        <el-col span="8" class="singer-detail">
             <img :src="artist.imgUrl" class="singer">
+             <p>{{artist.desc}}</p>
         </el-col>
-        <el-col span="12">
+        <el-col span="16">
+            <h2>{{artist.name}}</h2>
             <el-table
                 :data="songs"
-                stripe="true"
                 :show-header="false"
                 highlight-current-row
                 @current-change="handleCurrentChange"
@@ -69,6 +69,10 @@ export default {
   height: 100%;
 }
 .singer{
-    width: 50%
+    width: 60%
+}
+.singer-detail{
+    text-align: center;
+    padding: 20px;
 }
 </style>

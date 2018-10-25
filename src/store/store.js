@@ -24,7 +24,7 @@ const store = new Vuex.Store({
             state.player.statusButtonIcon = 'el-icon-third-pause';
             state.player.playList.push(playerState.musicUrl);
             state.player.albumPicList.push(playerState.albumPicUrl);
-            state.player.playingIndex = state.player.playList.length + 1;
+            state.player.playingIndex = state.player.playList.length - 1
         },
         setPauseState(state) {
             if (state.player.isPlaying !== undefined) {
