@@ -2,7 +2,7 @@
   <el-container>
     <el-main class="new-music">
       <p>新歌快递</p>
-      <el-table :data="musicList" stripe="true" :show-header="false" highlight-current-row @current-change="handleCurrentChange">
+      <el-table :data="musicList" stripe :show-header="false" highlight-current-row @current-change="handleCurrentChange">
         <el-table-column type="index"></el-table-column>
         <el-table-column prop="name"></el-table-column>
         <el-table-column prop="artist"></el-table-column>

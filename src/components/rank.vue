@@ -42,7 +42,7 @@ export default {
     methods: {
         getOfficialRankList() {
             for (let i = 0; i < 5; i++) {
-                let url = `/api/top/list?idx=${i}`;
+                let url = `http://120.77.252.125:3000/top/list?idx=${i}`;
                 let officialList = [];
                 this.$http.getOfficialRankList(url, response => {
                     let rankName = response.data.playlist.name;
@@ -63,7 +63,7 @@ export default {
         },
         getGlobalRankList() {
             for (let i = 5; i < 23; i++) {
-                let url = `/api/top/list?idx=${i}`;
+                let url = `http://120.77.252.125:3000/top/list?idx=${i}`;
                 let globalList = [];
                 this.$http.getGlobalRankList(url, response => {
                     let rankName = response.data.playlist.name;

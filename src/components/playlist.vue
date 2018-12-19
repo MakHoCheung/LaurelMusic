@@ -45,8 +45,8 @@ export default {
     },
     getPlayListWithTag(tag) {
       let url = tag
-        ? '/api/top/playlist?limit=10&order=new&cat=' + tag
-        : '/api/top/playlist?limit=10&order=new';
+        ? 'http://120.77.252.125:3000/top/playlist?limit=10&order=new&cat=' + tag
+        : 'http://120.77.252.125:3000/top/playlist?limit=10&order=new';
       this.$http.getPlayListWithTag(url,response => {
         let dataList = response.data.playlists;
         dataList.forEach(element => {

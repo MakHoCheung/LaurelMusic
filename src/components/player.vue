@@ -1,16 +1,16 @@
 <template>
   <el-row class="player" type="flex" align="middle">
-    <el-col :span="2" offset="1" class="player-avatar-area">
+    <el-col :span="2" :offset="1" class="player-avatar-area">
       <img class="player-avatar" :src="albumPicUrl">
     </el-col>
-    <el-col :span="12" offset="1">
-      <audio autoplay :src="musicUrl" ref="audio" @timeupdate="updateProgress" />
+    <el-col :span="12" :offset="1">
+      <audio autoplay :src="musicUrl" ref="audio" @timeupdate="updateProgress"></audio>
       <el-progress :percentage="progress" :show-text="false" color="#da4949"></el-progress>
     </el-col>
-    <el-col :span="1" offset="1">
+    <el-col :span="1" :offset="1">
       <el-button :icon="statusButtonIcon" circle @click="statusButtonClick" class="statusButton"></el-button>
     </el-col>
-    <el-col :span="1" offset="1">
+    <el-col :span="1" :offset="1">
       <el-button icon="el-icon-third-verticalleft" circle @click="nextButtonClick" class="nextButton"></el-button>
     </el-col>
   </el-row>

@@ -2,31 +2,31 @@ import axios from 'axios';
 
 export default {
     getBanner(handler) {
-        axios.get('/api/banner').then(handler);
+        axios.get('http://120.77.252.125:3000/banner').then(handler);
     },
     getNewMusic(handler) {
-        axios.get('/api/personalized/newsong').then(handler);
+        axios.get('http://120.77.252.125:3000/personalized/newsong').then(handler);
     },
     getMusicUrl(id, handler) {
-        axios.get('http://localhost:3000/song/url?id=' + id).then(handler);
+        axios.get('http://120.77.252.125:3000/song/url?id=' + id).then(handler);
     },
     getSingers(hander) {
-        axios.get('/api/top/artists?offset=0&limit=12').then(hander);
+        axios.get('http://120.77.252.125:3000/top/artists?offset=0&limit=12').then(hander);
     },
     getMvs(handler) {
-        axios.get('/api/personalized/mv').then(handler);
+        axios.get('http://120.77.252.125:3000/personalized/mv').then(handler);
     },
     getPlayLists(handler) {
-        axios.get('/api/personalized?offset=0&limit=12').then(handler);
+        axios.get('http://120.77.252.125:3000/personalized?offset=0&limit=12').then(handler);
     },
     getBroadCasts(handler) {
-        axios.get('/api/personalized/djprogram').then(handler);
+        axios.get('http://120.77.252.125:3000/personalized/djprogram').then(handler);
     },
     getPrograms(handler) {
-        axios.get('/api/program/recommend').then(handler);
+        axios.get('http://120.77.252.125:3000/program/recommend').then(handler);
     },
     getCatList(handler) {
-        axios.get('/api/playlist/catlist').then(handler);
+        axios.get('http://120.77.252.125:3000/playlist/catlist').then(handler);
     },
     getPlayListWithTag(url, handler) {
         axios.get(url).then(handler);
@@ -38,6 +38,6 @@ export default {
         axios.get(url).then(handler).then(secondHandler);
     },
     getSinger(id, handler) {
-        axios.get('/api/artists?id=' + id).then(handler);
+        axios.get('http://120.77.252.125:3000/artists?id=' + id).then(handler);
     }
 }
