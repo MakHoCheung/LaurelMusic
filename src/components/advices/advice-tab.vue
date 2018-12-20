@@ -19,7 +19,9 @@
           <div>
             <el-row>
               <el-col :span="6" v-for="(mv, index) in mvs" :key="index">
-                <img :src="mv.imgUrl" class="mv-avatar">
+                <router-link :to="{path:'/advice_mv',query:{id:mv.id}}">
+                  <img :src="mv.imgUrl" class="mv-avatar">
+                </router-link>
                 <p>{{mv.name}}</p>
               </el-col>
             </el-row>
