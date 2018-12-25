@@ -20,7 +20,7 @@ export default {
   name: 'palyer',
   data: function () {
     return {
-    }
+    };
   },
   computed: {
     albumPicUrl() {
@@ -53,7 +53,7 @@ export default {
     updateProgress() {
       let currentTime = this.$refs.audio.currentTime;
       let duration = this.$refs.audio.duration;
-      if(currentTime === duration){
+      if (currentTime === duration) {
         this.$store.commit('playNextSong');
         return;
       }

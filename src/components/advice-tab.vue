@@ -31,7 +31,9 @@
           <div>
             <el-row>
               <el-col :span="4" v-for="(playList, index) in playLists" :key="index">
+                <router-link :to="{path:'/advice_playlist',query:{id:playList.id}}">
                 <img :src="playList.imgUrl" class="playlist-avatar">
+                </router-link>
                 <p>{{playList.name}}</p>
               </el-col>
             </el-row>
@@ -62,7 +64,6 @@
   </el-row>
 </template>
 <script>
-import axios from 'axios';
 export default {
   name: 'advice-tab',
   data: function () {

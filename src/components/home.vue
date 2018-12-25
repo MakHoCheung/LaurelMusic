@@ -7,7 +7,7 @@
 </template>
 <script>
 import banner from './banner.vue';
-import adviceTab from './advices/advice-tab.vue';
+import adviceTab from './advice-tab.vue';
 import newMusic from './new-music.vue';
 export default {
   name: 'home',

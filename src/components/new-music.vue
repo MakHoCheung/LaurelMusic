@@ -23,7 +23,6 @@ export default {
   methods: {
     getNewMusics() {
       this.musicList.length = 0;
-      console.log(this.$http);
       this.$http.getNewMusic(response => {
         let dataList = response.data.result;
         dataList.forEach(element => {
@@ -43,7 +42,7 @@ export default {
       let id = currentRow.id;
       this.$http.getMusicUrl(id,response => {
         this.$store.commit('setPlayerState', { musicUrl: response.data.data[0].url, albumPicUrl: currentRow.albumPicUrl });
-      })
+      });
     }
   },
   mounted: function () {

@@ -42,5 +42,11 @@ export default {
   },
   getMv(id, handler) {
     axios.get('http://120.77.252.125:3000/mv/detail?mvid=' + id).then(handler);
+  },
+  getPlayList(id, handler) {
+    axios.get('http://120.77.252.125:3000/playlist/detail?id=' + id).then(handler);
+  },
+  getBroadCastDetail(id, handler) {
+    axios.get('http://120.77.252.125:3000/dj/detail?id=' + id).then(handler);
   }
 };
